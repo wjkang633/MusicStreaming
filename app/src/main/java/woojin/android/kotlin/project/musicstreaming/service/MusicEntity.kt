@@ -12,3 +12,6 @@ data class MusicEntity(
         @SerializedName("cover")
         val coverUrl:String
 )
+
+
+
