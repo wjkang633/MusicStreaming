@@ -1,5 +1,6 @@
 package woojin.android.kotlin.project.musicstreaming
 
+import woojin.android.kotlin.project.musicstreaming.service.MusicDto
 import woojin.android.kotlin.project.musicstreaming.service.MusicEntity
 
 fun MusicEntity.mapper(id: Long): MusicModel =
@@ -10,3 +11,9 @@ fun MusicEntity.mapper(id: Long): MusicModel =
                 track = track,
                 artist = artist
         )
+
+fun MusicDto.mapper(): PlayerModel =
+        PlayerModel(
+                playMusicList = musics.mapIndexed { index, musicEntity ->
+                        musicEntity.mapper(index.toLong())
+                })
